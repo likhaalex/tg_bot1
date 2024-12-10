@@ -1,10 +1,10 @@
-import asyncio
+import os
 from aiogram import Bot, Dispatcher, types
 from aiogram.filters import Command
-from background import keep_alive
+import asyncio
 
-
-TOKEN = '7818186037:AAFROJjR-vT1iKTUDaD26ZDw5DfreWFlImQ'
+# Получение токена из переменных окружения
+TOKEN = os.getenv("TOKEN")
 
 bot = Bot(TOKEN)
 dp = Dispatcher()
@@ -23,5 +23,4 @@ async def main():
     await dp.start_polling(bot)
 
 if __name__ == '__main__':
-    keep_alive()
     asyncio.run(main())
